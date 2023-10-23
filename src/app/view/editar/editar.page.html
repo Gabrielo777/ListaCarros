@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Lista de Carros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-list>
+    <ion-item>
+      <ion-toggle (ionChange)="habilitar()">Editar Carros</ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Nome do Carro" placeholder="Insira o nome" [(ngModel)]="nome" disabled={{edicao}}></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Ano De Lançamento" type="number" placeholder="Insira o ano de lançamento" [(ngModel)]="ano" disabled={{edicao}}></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Montadora" type="text" placeholder="Insira a Montadora" [(ngModel)]="montadora" disabled={{edicao}}></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Tipo Do Carro" placeholder="Selecione" [(ngModel)]="tipocarro">
+        <ion-select-option value="0">Pista</ion-select-option>
+        <ion-select-option value="1">Semi-pista</ion-select-option>
+        <ion-select-option value="2">Off-Road</ion-select-option>
+        <ion-select-option value="3">Drift</ion-select-option>
+        <ion-select-option value="4">Arrancada</ion-select-option>
+        <ion-select-option value="5">Rua</ion-select-option>
+        <ion-select-option value="6">Passeio</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Tração" placeholder="Selecione" [(ngModel)]="tracao">
+        <ion-select-option value="0">AWD</ion-select-option>
+        <ion-select-option value="1">FWD</ion-select-option>
+        <ion-select-option value="2">RWD</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+  </ion-list>
+  
+  <ion-button expand="full" (click)="editar()" disabled={{edicao}}>Salvar</ion-button>
+  <ion-button expand="full" (click)="excluir()" color="danger" disabled={{edicao}}>Excluir</ion-button>
+
+</ion-content>
